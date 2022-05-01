@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  a3-mysql:
+    #restart: always
+    image: zhasst/a3-mysql:latest
+    ports:
+      - 3306:3306
+    container_name: a3-mysql
+    volumes:
+      - "./storage:/var/lib/mysql"
+      - "./log/mysql:/var/log/mysql"
+      - "./mysql-sock:/var/sock/mysqld"
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      TIMEZONE: Asia/Almaty
+      MYSQL_GENERAL_LOG: 1
+    networks:
+      - a3-net
+networks:
+  a3-net:
+    external:
+      name: a3-net      

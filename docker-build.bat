@@ -1,0 +1,1 @@
+docker build --no-cache --tag=zhasst/a3-mysql:latest .
